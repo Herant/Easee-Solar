@@ -1,0 +1,16 @@
+{
+"companyName": "Easee",
+"productName": "Solargrid",
+"productVersion": "0.1",
+"dataUrl": "Ver.28.01.21.data.unityweb",
+"wasmCodeUrl": "Ver.28.01.21.wasm.code.unityweb",
+"wasmFrameworkUrl": "Ver.28.01.21.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Light",
+"backgroundColor": "#FFFFFF",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.4.13f1"
+}

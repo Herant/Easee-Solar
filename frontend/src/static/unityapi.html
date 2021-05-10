@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unity WebGL Player | Solargrid</title>
+  <!-- WebGL build import -->
+  <script src="/FinalVersion/Build/UnityLoader.js"></script>
+  <script>
+    // Initiate Unity, important to chose direction for WebGL build
+    var unityInstance = UnityLoader.instantiate("unityContainer", "/FinalVersion/Build/FinalVersion.json");
+
+    var color = {
+      r: 0,
+      g: 0,
+      b: 0,
+      a: 0
+    }
+
+    function updateColor() {
+      var r = document.getElementById("r").value;
+      var g = document.getElementById("g").value;
+      var b = document.getElementById("b").value;
+      var a = document.getElementById("a").value;
+
+      color = {
+        r: r,
+        g: g,
+        b: b,
+        a, a
+      }
+    }
+
+    // function changeCirclePathColor() {
+    //   updateColor();
+    //   unityInstance.SendMessage('SolarPath', 'CirclePathColor', JSON.stringify(color));
+    // }
+
+    function changeTeslaColor() {
+      updateColor();
+      unityInstance.SendMessage('JsColor', 'TeslaColor', JSON.stringify(color));
+    }
+
+    function changeChargerColor() {
+      updateColor();
+      unityInstance.SendMessage('JsColor', 'ChargerColor', JSON.stringify(color));
+    }
+
+    function toggleSolarSequence() {
+      unityInstance.SendMessage('SolarPath', 'ToggleSolarSequence', 0.005);
+    }
+
+    function toggleGridSequence() {
+      unityInstance.SendMessage('GridPath', 'ToggleGridSequence', 0.005);
+    }
+
+    // unityInstance.SendMessage('SolarPath', 'ToggleSolarSequence');
+    // unityInstance.SendMessage('SolarPath', 'ToggleSolarPath');
+
+    // unityInstance.SendMessage('GridPath', 'ToggleGridSequence');
+    // unityInstance.SendMessage('GridPath', 'ToggleGridPath');
+
+  </script>
+</head>
+
+<body>
+  <div>
+    <div id="unityContainer" style="width: 960px; height: 600px; margin: auto"></div>
+  </div>
+  <button onclick="changeTeslaColor()">Change
+    Tesla
+    Color</button>
+  <button onclick="changeChargerColor()">Change
+    Charger
+    Color</button>
+  <!-- <button onclick="changeCirclePathColor()">Change
+    Sprites
+    Color</button> -->
+  <button onclick="toggleSolarSequence()">Toggle Solar Sequence</button>
+  <button onclick="toggleGridSequence()">Toggle Grid Sequence</button>
+  <div>
+    <input id="r" type="text" placeholder="R">
+    <input id="g" type="text" placeholder="G">
+    <input id="b" type="text" placeholder="B">
+    <input id="a" type="text" placeholder="A">
+  </div>
+</body>
+
+</html>
